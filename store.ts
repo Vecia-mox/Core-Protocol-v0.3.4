@@ -101,7 +101,7 @@ export const useGameState = () => {
     const now = Date.now();
     setState(prev => {
       const isBoostActive = now < prev.boostEndTime;
-      const boostMult = isBoostActive ? 4 : 1;
+      const boostMult = isBoostActive ? 15 : 1;
 
       const newPlanets = prev.planets.map(p => {
         const secondsPassed = (now - p.lastUpdate) / 1000;

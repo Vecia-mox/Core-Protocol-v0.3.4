@@ -252,7 +252,7 @@ const InfrastructureTile = ({ entity, level, onUpgrade, resources, activeEvent, 
         <div className="flex items-baseline gap-2 mb-0.5">
           <h3 className="text-[10px] md:text-sm font-orbitron font-light text-[var(--arrival-ink)] uppercase tracking-widest">{entity.name}</h3>
           {tab !== 'shipyard' && <span className="text-[7px] font-mono text-[var(--arrival-ink-dim)]">Lvl {level}</span>}
-          {isBoosted && <span className="text-[6px] text-[var(--arrival-accent)] font-bold animate-pulse px-1 bg-[var(--arrival-accent)]/10 rounded-sm">BOOSTED (4x)</span>}
+          {isBoosted && <span className="text-[6px] text-[var(--arrival-accent)] font-bold animate-pulse px-1 bg-[var(--arrival-accent)]/10 rounded-sm">BOOSTED (15x)</span>}
         </div>
         <p className="text-[8px] text-[var(--arrival-ink-dim)] font-light leading-relaxed mb-3 max-w-xl line-clamp-2 md:line-clamp-none">{entity.description}</p>
         
@@ -1168,26 +1168,26 @@ export default function App() {
           value={currentPlanet.resources.metal} 
           capacity={storageCaps.metal} 
           protectedAmount={protectionLevels.metal} 
-          rate={rates.metal * (isBoostActive ? 4 : 1)} 
-          onClick={() => setSelectedResDetail({ name: 'METAL', stats: { rate: rates.metal * (isBoostActive ? 4 : 1), capacity: storageCaps.metal, protectedAmount: protectionLevels.metal, currentValue: currentPlanet.resources.metal } })}
+          rate={rates.metal * (isBoostActive ? 15 : 1)} 
+          onClick={() => setSelectedResDetail({ name: 'METAL', stats: { rate: rates.metal * (isBoostActive ? 15 : 1), capacity: storageCaps.metal, protectedAmount: protectionLevels.metal, currentValue: currentPlanet.resources.metal } })}
         />
         <LogogramMeter 
           label="Crystal" 
           value={currentPlanet.resources.crystal} 
           capacity={storageCaps.crystal} 
           protectedAmount={protectionLevels.crystal} 
-          rate={rates.crystal * (isBoostActive ? 4 : 1)} 
+          rate={rates.crystal * (isBoostActive ? 15 : 1)} 
           color="#90e0ef" 
-          onClick={() => setSelectedResDetail({ name: 'CRYSTAL', stats: { rate: rates.crystal * (isBoostActive ? 4 : 1), capacity: storageCaps.crystal, protectedAmount: protectionLevels.crystal, currentValue: currentPlanet.resources.crystal } })}
+          onClick={() => setSelectedResDetail({ name: 'CRYSTAL', stats: { rate: rates.crystal * (isBoostActive ? 15 : 1), capacity: storageCaps.crystal, protectedAmount: protectionLevels.crystal, currentValue: currentPlanet.resources.crystal } })}
         />
         <LogogramMeter 
           label="Deut" 
           value={currentPlanet.resources.deuterium} 
           capacity={storageCaps.deuterium} 
           protectedAmount={protectionLevels.deuterium} 
-          rate={rates.deuterium * (isBoostActive ? 4 : 1)} 
+          rate={rates.deuterium * (isBoostActive ? 15 : 1)} 
           color="#b79ced" 
-          onClick={() => setSelectedResDetail({ name: 'DEUTERIUM', stats: { rate: rates.deuterium * (isBoostActive ? 4 : 1), capacity: storageCaps.deuterium, protectedAmount: protectionLevels.deuterium, currentValue: currentPlanet.resources.deuterium } })}
+          onClick={() => setSelectedResDetail({ name: 'DEUTERIUM', stats: { rate: rates.deuterium * (isBoostActive ? 15 : 1), capacity: storageCaps.deuterium, protectedAmount: protectionLevels.deuterium, currentValue: currentPlanet.resources.deuterium } })}
         />
         <LogogramMeter 
           label="Power" 
@@ -1214,7 +1214,7 @@ export default function App() {
             
             {isBoostActive && (
               <div className="absolute top-0 right-0 p-3 glass-card border-r-2 border-r-[var(--arrival-accent)] arrival-fade z-20 shadow-[0_0_20px_rgba(179,205,224,0.1)]">
-                <div className="text-[6px] uppercase tracking-widest text-[var(--arrival-accent)] font-bold mb-1">Temporal Acceleration (4x)</div>
+                <div className="text-[6px] uppercase tracking-widest text-[var(--arrival-accent)] font-bold mb-1">Temporal Acceleration (15x)</div>
                 <div className="text-[10px] font-orbitron text-[var(--arrival-ink)] tracking-wider flex items-center gap-2">
                   <span className="w-1.5 h-1.5 rounded-full bg-[var(--arrival-accent)] animate-pulse shrink-0"></span>
                   {formatDuration(boostRemaining)}

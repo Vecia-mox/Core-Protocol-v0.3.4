@@ -138,7 +138,7 @@ export const calculateBuildTime = (cost: Cost, roboticsLevel: number, naniteLeve
   const baseHours = totalRes / 2500;
   const robotFactor = 1 / (roboticsLevel + 1);
   const naniteFactor = Math.pow(0.5, naniteLevel);
-  const boostFactor = isBoosted ? 0.25 : 1;
+  const boostFactor = isBoosted ? (1 / 15) : 1;
   return Math.max(1, Math.floor(baseHours * robotFactor * naniteFactor * 3600 * boostFactor));
 };
 
