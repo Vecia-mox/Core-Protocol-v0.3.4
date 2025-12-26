@@ -1,0 +1,5 @@
+{
+  "name": "Core Protocol v0.3.4",
+  "description": "An asynchronous, event-driven space strategy game featuring deep industrial simulation, fleet combat, and a tick-less resource engine.",
+  "requestFramePermissions": []
+}

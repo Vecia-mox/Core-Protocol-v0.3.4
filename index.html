@@ -1,0 +1,123 @@
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Core Protocol | The Shell</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400..900&family=Inter:wght@100;300;400;600&family=JetBrains+Mono:wght@100;400&display=swap" rel="stylesheet">
+    <style>
+      :root {
+        --arrival-bg: #030405;
+        --arrival-mist: rgba(255, 255, 255, 0.02);
+        --arrival-ink: #f0f2f5;
+        --arrival-ink-dim: rgba(240, 242, 245, 0.4);
+        --arrival-border: rgba(255, 255, 255, 0.05);
+        --arrival-accent: #b3cde0;
+        --arrival-glow: rgba(179, 205, 224, 0.15);
+        --glass-bg: rgba(255, 255, 255, 0.01);
+        --card-shadow: 0 30px 60px -12px rgba(0, 0, 0, 0.5);
+      }
+
+      .light-mode {
+        --arrival-bg: #f5f7fa;
+        --arrival-mist: rgba(52, 152, 219, 0.04);
+        --arrival-ink: #1e293b;
+        --arrival-ink-dim: rgba(30, 41, 59, 0.5);
+        --arrival-border: rgba(0, 0, 0, 0.08);
+        --arrival-accent: #3498db;
+        --arrival-glow: rgba(52, 152, 219, 0.1);
+        --glass-bg: rgba(255, 255, 255, 0.6);
+        --card-shadow: 0 10px 40px -10px rgba(0, 0, 0, 0.08);
+      }
+
+      body {
+        background-color: var(--arrival-bg);
+        color: var(--arrival-ink);
+        font-family: 'Inter', sans-serif;
+        overflow: hidden;
+        height: 100vh;
+        width: 100vw;
+        transition: background-color 0.8s ease, color 0.8s ease;
+      }
+
+      .font-orbitron { font-family: 'Orbitron', sans-serif; }
+      .font-mono { font-family: 'JetBrains Mono', monospace; }
+
+      .shell-mist {
+        position: fixed;
+        inset: 0;
+        z-index: -1;
+        background: radial-gradient(circle at 50% 50%, var(--arrival-mist) 0%, transparent 80%);
+        pointer-events: none;
+        animation: mist-drift 20s infinite alternate ease-in-out;
+      }
+
+      @keyframes mist-drift {
+        0% { transform: scale(1) translate(0, 0); opacity: 0.5; }
+        100% { transform: scale(1.2) translate(2%, 2%); opacity: 1; }
+      }
+
+      .glass-card {
+        background: var(--glass-bg);
+        backdrop-filter: blur(20px) saturate(120%);
+        -webkit-backdrop-filter: blur(20px) saturate(120%);
+        border: 1px solid var(--arrival-border);
+        transition: all 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+      }
+
+      .glass-card:hover {
+        background: var(--glass-bg);
+        box-shadow: var(--card-shadow);
+      }
+
+      .logogram-ring {
+        transition: stroke-dashoffset 1.5s cubic-bezier(0.4, 0, 0.2, 1);
+        stroke-linecap: round;
+        filter: blur(0.2px);
+      }
+
+      .arrival-fade {
+        animation: arrival-fade-in 1.2s forwards;
+      }
+
+      @keyframes arrival-fade-in {
+        from { opacity: 0; transform: translateY(10px); }
+        to { opacity: 1; transform: translateY(0); }
+      }
+
+      ::-webkit-scrollbar { width: 1px; }
+      ::-webkit-scrollbar-thumb { background: var(--arrival-ink-dim); }
+
+      .nav-dot {
+        width: 4px;
+        height: 4px;
+        border-radius: 50%;
+        background: var(--arrival-ink-dim);
+        transition: all 0.4s ease;
+      }
+
+      .nav-dot.active {
+        background: var(--arrival-accent);
+        transform: scale(1.5);
+        box-shadow: 0 0 10px var(--arrival-accent);
+      }
+    </style>
+  <script type="importmap">
+{
+  "imports": {
+    "react-dom/": "https://esm.sh/react-dom@^19.2.3/",
+    "react/": "https://esm.sh/react@^19.2.3/",
+    "react": "https://esm.sh/react@^19.2.3"
+  }
+}
+</script>
+</head>
+  <body>
+    <div class="shell-mist"></div>
+    <div id="root"></div>
+  </body>
+</html>
